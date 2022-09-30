@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {AppBar, Box, Container, Grid, Icon, Paper, Tab, Tabs, Toolbar, Typography} from "@mui/material";
+import { Box, Container, Grid,  Paper, Tab, Tabs, Typography} from "@mui/material";
 import rytpe1 from '../assets/image/rytpe-1.png'
 import rytpe2 from '../assets/image/rytpe-2.png'
 import rytpe3 from '../assets/image/rytpe-3.png'
