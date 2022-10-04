@@ -36,10 +36,8 @@ const Login = () => {
       const response = await axios.post("/api/auth/login/", data);
       localStorage.setItem("token", response.data.data.token);
       navigate("/home");
-      console.log(response);
     } catch (error) {
       setError(error.response.data.message);
-      console.log(error);
     }
   };
 

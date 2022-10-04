@@ -3,7 +3,6 @@ import axios from "axios";
 
 let headers = {};
 if (localStorage.token) {
-    console.log(localStorage.token);
   headers.Authorization = `Bearer ${localStorage.token}`;
 }
 
