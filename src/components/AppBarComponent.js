@@ -11,7 +11,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
 import MobileDrawerComponent from "./MobileDrawerComponent";
 import LandingPageButtonComponent from "./LandingPageButtonComponent";
+import { Link, useNavigate } from 'react-router-dom';
 const AppBarComponent = ({ isMediumSize }) => {
+    const navigate = useNavigate();
     const[menuItems, setMenuItems] = useState(["Home" , "About", "Reward Your Teacher" , "Contact" ]);
     const[value, setValue] = useState();
 
@@ -19,6 +21,11 @@ const AppBarComponent = ({ isMediumSize }) => {
    // const classes = useStyle();
     const closeDrawer = () => {
       setDrawerControl(false)
+    }
+
+    const route =( )=>{
+        console.log("route")
+        navigate('/login')
     }
     return (
         <AppBar  position="sticky" elevation={6} sx={{background: '#FFFFFF', color: '#55a630',   paddingX : isMediumSize ? 1 : 10}}>
@@ -54,7 +61,9 @@ const AppBarComponent = ({ isMediumSize }) => {
                                     ))
                                 }
                             </Tabs>
-                            <LandingPageButtonComponent sx={{mr:2, marginLeft :"auto", background: '#55a630'}} value="Login" />
+                          
+                             <LandingPageButtonComponent sx={{mr:2, marginLeft :"auto"}} className="landingPageButton" to="/login" value="Login" />
+                          
                             {/*<LandingPageButtonComponent value="Login" />*/}
                         </>
                     )

@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .App-logo {
@@ -66,4 +66,9 @@
   -ms-flex: 1;
   flex: 1;
   padding: 6px 16px;
+}
+
+.landingPageButton{
+  margin-left: 450px !important;
+  text-decoration: none !important;
 }
