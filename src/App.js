@@ -6,6 +6,7 @@ import {Routes, Route, Link, BrowserRouter} from "react-router-dom";
 import Login from './pages/login/Login';
 import Home from './pages/dashBoard/Home';
 import RequiredAuth from "./pages/login/RequiredAuth";
+import Body from './pages/allSchools/Body';
 
 function App() {
     const theme = useTheme();
@@ -17,6 +18,7 @@ function App() {
                 <Route exact path="/" element={  <LandingPage isMediumSize={isMediumSize} /> } />
                 <Route exact path="/login" element={  <Login /> } />
                 <Route exact path="/home" element={<RequiredAuth><Home/></RequiredAuth>}/>
+                <Route exact path="school-list" element={<Body />}/>
                 
 
                 {/*<Route exact path="/c" element={  <AppBarComponent isMediumSize={isMediumSize} /> } />*/}
