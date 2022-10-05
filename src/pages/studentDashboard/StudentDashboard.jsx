@@ -62,33 +62,7 @@ const StudentDashboard = () => {
                 </button>
 
             </LeftSideBar>
-            {/* <DashboardMainBody>
-                    <h2>My Dashboard</h2>
-                    <TopBoxSection>
-                            <div>
-                                <h4>My Wallet Balance</h4>
-                                <p>Account is active</p>
-                            </div>
-                            <h1>N56,600</h1>
-                            <button >
-                                <i class="fa fa-add"></i>
-                                <span>Add money</span>
-                            </button>
-                    </TopBoxSection>
-                    <BottomBoxSection>
-                            <GreenTop></GreenTop>
-                            <TransactionDetails>
-                                <div>
-                                    <h4>Total Money Sent</h4>
-                                    <h1>N24,500</h1>
-                                    <p>Sent</p>
-                                </div>
-                                <span>
-                                    <img src="img/Vector (8).png" alt="" />
-                                </span>
-                            </TransactionDetails>
-                    </BottomBoxSection>
-            </DashboardMainBody> */}
+    
         </DashboardContainer>
     </>
   )
