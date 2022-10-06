@@ -3,13 +3,9 @@ import './App.css';
 import LandingPage from "./pages/indexPage";
 import {useMediaQuery, useTheme} from "@mui/material";
 import {Routes, Route, Link, BrowserRouter} from "react-router-dom";
-
-import StudentDashboard from './components/AddMoney/StudentDashboard';
-import TeacherDashboard from './components/AddMoney/TeacherDashboard';
 import Login from './pages/login/Login';
 import Home from './pages/dashBoard/Home';
 import RequiredAuth from "./pages/login/RequiredAuth";
-
 import StudentDashboard from './pages/studentDashboard/StudentDashboard';
 import FundWallet from './pages/studentDashboard/FundWallet';
 import TeacherDashboard from './pages/teacherDashboard copy/TeacherDashboard';
