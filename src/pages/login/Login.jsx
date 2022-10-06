@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-
 import line from "../../assets/loginAssets/line.svg";
 import Google from "../../assets/loginAssets/Google.svg";
 import rewardlogo from "../../assets/loginAssets/rewardlogo.svg";
@@ -22,18 +21,21 @@ const Login = () => {
     setPassword(e.target.value);
   };
 
+  const errorStyle = {
+    border: "2px solid red",
+	borderRadius: "5px"
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const data = {
         email,
         password,
       };
-      if (localStorage.token) {
-        localStorage.removeItem("token");
-      }
+
       const response = await axios.post("/api/auth/login/", data);
+      console.log(response);
       localStorage.setItem("token", response.data.data.token);
       navigate("/home");
     } catch (error) {
@@ -58,6 +60,8 @@ const Login = () => {
                 type="email"
                 onChange={handleEmail}
                 placeholder="Enter your email"
+                {...(error && { style: errorStyle })}
+                onClick={() => setError("")}
               />
             </div>
 
@@ -67,6 +71,8 @@ const Login = () => {
                 type="password"
                 placeholder="Enter your password"
                 onChange={handlePassword}
+                {...(error && { style: errorStyle })}
+                onClick={() => setError("")}
               />
             </div>
 
