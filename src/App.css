@@ -6,6 +6,7 @@
   box-sizing: border-box;
 }
 
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -72,7 +73,9 @@
   padding: 6px 16px;
 }
 
+
 .landingPageButton{
   margin-left: 450px !important;
   text-decoration: none !important;
 }
+
