@@ -30,7 +30,7 @@ const DashboardAppBar = ({ isMediumSize }) => {
     return (
        
         <>
-         <AppBar  position="sticky" elevation={6} sx={{background: '#FFFFFF', color: '#55a630',   paddingX : isMediumSize ? 1 : 10}}>
+         <AppBar  position="fixed" elevation={6} sx={{background: '#FFFFFF', color: '#55a630',   paddingX : isMediumSize ? 1 : 10}}>
             <Toolbar>
                 {
                     isMediumSize ? (
@@ -70,7 +70,7 @@ const DashboardAppBar = ({ isMediumSize }) => {
 
             </Toolbar>
         </AppBar>
-        <DashboardSideNav  navlink={navlist} />
+        {/* <DashboardSideNav  navlink={navlist} /> */}
         </>
     );
 };

@@ -6,6 +6,7 @@ import {Routes, Route, Link, BrowserRouter} from "react-router-dom";
 import Login from './pages/login/Login';
 import Home from './pages/dashBoard/Home';
 import RequiredAuth from "./pages/login/RequiredAuth";
+import Body from './pages/allSchools/School';
 import AppBarComponent from "./components/AppBarComponent";
 import DashboardAppBar from './components/dashbord_components/DashboardAppBar';
 import StudentDashboard from './pages/studentDashboard/StudentDashboard';
@@ -29,6 +30,7 @@ function App() {
                 <Route exact path="/" element={  <LandingPage isMediumSize={isMediumSize} /> } />
                 <Route exact path="/login" element={  <Login /> } />
                 <Route exact path="/home" element={<RequiredAuth><Home/></RequiredAuth>}/>
+                <Route exact path="/schools" element={<Body />}/>
                 <Route path="/studentdashboard" element={<RequiredAuth><StudentDashboard/></RequiredAuth>}/>
                 <Route path="/teacherdashboard" element={<RequiredAuth><TeacherDashboard/></RequiredAuth>}/>
 
