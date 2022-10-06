@@ -2,9 +2,10 @@ import styled from 'styled-components'
 
 export const BodyStyle = styled.div `
 .rewardBody {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    padding: 10px 0 0 60px;
+    padding: 10px 0 0 60px; */
+    margin-top: 100px !important;
 }
 
 .title h2 {
@@ -12,8 +13,10 @@ export const BodyStyle = styled.div `
     font-style: normal;
     font-weight: 600;
     font-size: 32px;
+    margin-top: 20px;
     line-height: 39px;
     color: #03435F;
+    margin-bottom: 10px ;
 }
 .search {
     display: flex;
@@ -72,7 +75,7 @@ input[type="search"] {
     border: 1px solid currentColor;
     display: flex;
     justify-content: space-around;
-    width: 60%;
+    width: 80%;
     padding: 4px 10px;
     align-items: flex-end;
 }
@@ -87,11 +90,14 @@ input[type="search"] {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
+    margin-top: -18px;
     color: #03435F;
 }
 
 .holder > div img {
     width: 23px;
+    padding-bottom: 5px;
+    //margin-top: 36px !important;
 }
 
 .table {
@@ -129,6 +135,7 @@ input[type="search"] {
     position: absolute;
     bottom: 5rem;
     left: 50%;
+    margin-top: -30px !important;
     transform: translate(-50%, -50%);
 }
 .pagination a {
@@ -148,5 +155,9 @@ input[type="search"] {
     background-color: #ddd;
 }
 
+.schoolName{
+    text-decoration: none;
+    color: black;
+}
 
 `

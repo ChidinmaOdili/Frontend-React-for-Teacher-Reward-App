@@ -6,12 +6,19 @@ import {Routes, Route, Link, BrowserRouter} from "react-router-dom";
 import Login from './pages/login/Login';
 import Home from './pages/dashBoard/Home';
 import RequiredAuth from "./pages/login/RequiredAuth";
-import Body from './pages/allSchools/Body';
+
+import Body from './pages/allSchools/School';
+
+import AppBarComponent from "./components/AppBarComponent";
+import DashboardAppBar from './components/dashbord_components/DashboardAppBar';
+
+
 
 import StudentDashboard from './pages/studentDashboard/StudentDashboard';
 import TeacherDashboard from './pages/teacherDashboard copy/TeacherDashboard';
 
 // import BaseRoute from './routes/BaseRoute';
+
 
 
 function App() {
@@ -20,12 +27,13 @@ function App() {
 
   return (
     <div className="App">
+    
             <Routes>
                 <Route exact path="/" element={  <LandingPage isMediumSize={isMediumSize} /> } />
                 <Route exact path="/login" element={  <Login /> } />
                 <Route exact path="/home" element={<RequiredAuth><Home/></RequiredAuth>}/>
 
-                <Route exact path="school-list" element={<Body />}/>
+                <Route exact path="/schools" element={<Body />}/>
 
                 <Route path="/studentdashboard" element={<StudentDashboard/>}/>
                 <Route path="/teacherdashboard" element={<TeacherDashboard/>}/>
@@ -33,8 +41,11 @@ function App() {
 
                 
 
-                {/*<Route exact path="/c" element={  <AppBarComponent isMediumSize={isMediumSize} /> } />*/}
+                <Route exact path="/c" element={  <DashboardAppBar /> } />
+
+
             </Routes>
+  
     </div>
   );
 }
