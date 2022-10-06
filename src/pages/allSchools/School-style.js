@@ -106,7 +106,6 @@ input[type="search"] {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    
     gap: 190px;
 }
   
@@ -123,7 +122,7 @@ input[type="search"] {
 
   .table-head{
     background: rgba(0, 0, 0, 0.04);
-    // position: absolute;
+    
     width: 926px;
     height: 40px;
     left: 380px;

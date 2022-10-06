@@ -4,7 +4,6 @@ import filterIcon from "./Filter.png";
 import { studentDashBoard } from "../../Utility/DashboardUtilities";
 import { Grid , Container } from "@mui/material";
  import axios from "../../api/axios"
-//import axios from "axios";
 import DashboardAppBar from "../../components/dashbord_components/DashboardAppBar";
 import DashboardSideNav from "../../components/dashbord_components/DashboardSideNav";
 import { height } from "@mui/system";
@@ -33,12 +32,10 @@ const Body = () => {
       </a>
     );
   }
-
   const fetchSchools = async () => {
     
     try {
       const url = `/api/schools/${pageNumber}/5/name`;
-      //const token = localStorage.getItem("token");
       const response = await axios.get(url).then((response) => {
           const allSchools = response.data.data.content;
           setSchool(allSchools);
