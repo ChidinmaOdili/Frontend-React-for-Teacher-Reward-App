@@ -23,11 +23,8 @@ function App() {
                 <Route exact path="/" element={  <LandingPage isMediumSize={isMediumSize} /> } />
                 <Route exact path="/login" element={  <Login /> } />
                 <Route exact path="/home" element={<RequiredAuth><Home/></RequiredAuth>}/>
-                <Route path="/studentdashboard" element={<StudentDashboard/>}/>
-                <Route path="/teacherdashboard" element={<TeacherDashboard/>}/>
-  
-                
-
+                <Route path="/studentdashboard" element={<RequiredAuth><StudentDashboard/></RequiredAuth>}/>
+                <Route path="/teacherdashboard" element={<RequiredAuth><TeacherDashboard/></RequiredAuth>}/>
                 {/*<Route exact path="/c" element={  <AppBarComponent isMediumSize={isMediumSize} /> } />*/}
             </Routes>
     </div>

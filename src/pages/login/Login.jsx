@@ -33,11 +33,20 @@ const Login = () => {
         email,
         password,
       };
+      // localStorage.clear();
 
       const response = await axios.post("/api/auth/login/", data);
       console.log(response);
+      localStorage.setItem("userId", response.data.data.id);
+      localStorage.setItem("email", response.data.data.email);
       localStorage.setItem("token", response.data.data.token);
-      navigate("/home");
+
+      const role =response.data.data.role;
+      if (role === "STUDENT") {
+        navigate("/studentdashboard");
+      } else if (role === "TEACHER") {
+        navigate("/teacherdashboard");
+      }
     } catch (error) {
       setError(error.response.data.message);
     }
