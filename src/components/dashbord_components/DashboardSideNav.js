@@ -10,6 +10,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import Divider from '@mui/material/Divider';
 import InboxIcon from '@mui/icons-material/Inbox';
 import DraftsIcon from '@mui/icons-material/Drafts';
+import { Link } from 'react-router-dom';
 const DashboardSideNav =({ navlink }) => {
   
     const [open, setOpen] = useState(false);
@@ -28,10 +29,10 @@ const DashboardSideNav =({ navlink }) => {
         className="dashboardDrawer"
         elevation={10}
         sx={{
-            width: '250px',
+            width: '400px',
             flexShrink: 0,
             '& .MuiDrawer-paper': {
-                width: '250px',
+                width: '300px',
                 boxSizing: 'border-box',
             },
         }}
@@ -39,15 +40,16 @@ const DashboardSideNav =({ navlink }) => {
         anchor="left"
         >
 
-        <List sx={{ mt : 6}}>
+        <List sx={{ mt : 6 , ml : 3 }}>
             {
                 navlink.map((item) => (
                     <ListItem disablePadding key={item.name}>
                     <ListItemButton>
                 
-                        <item.icon sx={{ mr : 2 , color : '#03435f', fontSize : '18px' }}/>
-                      
-                      <ListItemText primary={item.name}  sx={{ color : '#03435f', fontSize : '18px' }}/>
+                        <item.icon sx={{ mr : 2 , color : '#03435f', fontSize : '20px' }}/>
+                      <Link to="/schools" style={{ textDecoration : 'none' }}>
+                        <ListItemText primary={item.name}  sx={{ color : '#03435f', fontSize : '20px' }}/>
+                      </Link>
                     </ListItemButton>
                   </ListItem> 
                 ))
