@@ -31,7 +31,7 @@ function App() {
                 <Route exact path="/home" element={<RequiredAuth><Home/></RequiredAuth>}/>
                 <Route path="/studentdashboard" element={<RequiredAuth><StudentDashboard/></RequiredAuth>}/>
                 <Route path="/teacherdashboard" element={<RequiredAuth><TeacherDashboard/></RequiredAuth>}/>
-
+               < Route path="home" element={<Home/>}/>
                 {/*<Route exact path="/c" element={  <AppBarComponent isMediumSize={isMediumSize} /> } />*/}
 
                 <Route exact path="/c" element={  <DashboardAppBar /> } />
