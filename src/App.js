@@ -12,6 +12,7 @@ import DashboardAppBar from './components/dashbord_components/DashboardAppBar';
 import StudentDashboard from './pages/studentDashboard/StudentDashboard';
 import FundWallet from './pages/studentDashboard/FundWallet';
 import TeacherDashboard from './pages/teacherDashboard copy/TeacherDashboard';
+import TeachersPage from './pages/TeachersPage';
 // import BaseRoute from './routes/BaseRoute';
 
 
@@ -29,11 +30,12 @@ function App() {
               <Route exact path="/fund-wallet" element={  <FundWallet/> } />
                 <Route exact path="/" element={  <LandingPage isMediumSize={isMediumSize} /> } />
                 <Route exact path="/login" element={  <Login /> } />
+                <Route exact path="/viewAllTeachers" element={  < TeachersPage /> } />
                 <Route exact path="/home" element={<RequiredAuth><Home/></RequiredAuth>}/>
                 <Route exact path="/schools" element={<Body />}/>
                 <Route path="/studentdashboard" element={<RequiredAuth><StudentDashboard/></RequiredAuth>}/>
                 <Route path="/teacherdashboard" element={<RequiredAuth><TeacherDashboard/></RequiredAuth>}/>
-
+                
                 {/*<Route exact path="/c" element={  <AppBarComponent isMediumSize={isMediumSize} /> } />*/}
 
                 <Route exact path="/c" element={  <DashboardAppBar /> } />
