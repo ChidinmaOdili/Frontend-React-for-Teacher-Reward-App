@@ -97,13 +97,13 @@ const StudentDashboard = () => {
               </li>
             </SideBarLink>
           </ul>
-          <button>
+          <button onClick={()=> setShowLogoutModal(true)}>
             <i className="fa fa-sign-out"></i>
-            <p onClick={()=> setShowLogoutModal(true)}>Logout</p>
+            <p>Logout</p>
           </button>
         
-          {showLogoutModal && <Logout closeModal={()=> setShowLogoutModal(false)} handleLogout={handleLogout} />}
-        
+          {showLogoutModal && <Logout closeModal= {setShowLogoutModal} handleLogout={handleLogout} />}
+
         </LeftSideBar>
         <DashboardMainBody>
           <h2>My Dashboard</h2>
