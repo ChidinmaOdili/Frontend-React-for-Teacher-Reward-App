@@ -23,13 +23,12 @@ export const LogoutModal = styled.div`
   }
   .Modal-footer {
     padding: 1rem;
-    padding-left: 2rem;
+    padding-right: 4rem;
     display: flex;
     justify-content: flex-end;
   }
   .Modal-footer button {
-    /* padding: 0.2rem 1.5rem; */
-    border-radius: 3px;
+    border-radius: 4px;
     border: none;
     float: right;
     gap: 1rem;
@@ -39,16 +38,19 @@ export const LogoutModal = styled.div`
     height: 30px;
     font-family: "Inter";
     font-style: normal;
+    text-align: center;
+   
+    
   }
 
   #yes {
     background-color: #55a630;
     color: #fff;
-    border-radius: 4px;
+   
     margin: 0 0.7rem;
     margin-left: 1rem;
     gap: 10px;
-    /* text-align: center; */
+  
   }
 
   .Modal-body {
