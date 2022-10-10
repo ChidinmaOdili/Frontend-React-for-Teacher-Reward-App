@@ -33,7 +33,7 @@ function App() {
               <Route exact path="/fund-wallet" element={  <FundWallet/> } />
                 <Route exact path="/" element={  <LandingPage isMediumSize={isMediumSize} /> } />
                 <Route exact path="/login" element={  <Login /> } />
-                <Route exact path="/viewAllTeachers" element={  < TeachersPage /> } />
+                <Route exact path="/getAllWithPagination/1/10/:school" element={  < TeachersPage /> } />
                 <Route exact path="/home" element={<RequiredAuth><Home/></RequiredAuth>}/>
                 <Route exact path="/schools" element={<Body />}/>
                 <Route exact path="/studentdashboard" element={<RequiredAuth><StudentDashboard/></RequiredAuth>}/>
@@ -41,6 +41,8 @@ function App() {
                 <Route exact path="/teachersignup" element={<TeacherSignUp/>}/>
                 <Route exact path= "/studentsignup" element={<StudentSignUp/>}/>
                 <Route exact path= "/signup" element = {<RedirectUser/>}/>
+              {/* <Route exact path="/schools/:schoolName" element={<Teacher />}/> */}
+
              
                 {/*<Route exact path="/c" element={  <AppBarComponent isMediumSize={isMediumSize} /> } />*/}
 

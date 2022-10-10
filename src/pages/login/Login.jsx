@@ -44,8 +44,10 @@ const Login = () => {
       const role =response.data.data.role;
       if (role === "STUDENT") {
         navigate("/studentdashboard");
+        window.location.reload();
       } else if (role === "TEACHER") {
         navigate("/teacherdashboard");
+        window.location.reload();
       }
     } catch (error) {
       setError(error.response.data.message);
