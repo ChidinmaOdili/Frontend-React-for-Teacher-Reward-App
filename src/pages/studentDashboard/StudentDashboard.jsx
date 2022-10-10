@@ -15,10 +15,12 @@ import {
   GreenTop,
   TransactionDetails,
 } from "./Studentdashboard.style";
+
 import Modal from "../Modal/Modal";
 import { getWalletBalance } from "./WalletBallance";
 import FundWallet from "./FundWallet";
 import Logout from "../Modal/logout/Logout";
+
 
 const StudentDashboard = () => {
   const [isOpen, setIsOpen] = useState(false);

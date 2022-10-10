@@ -30,9 +30,10 @@ function App() {
               <Route exact path="/fund-wallet" element={  <FundWallet/> } />
                 <Route exact path="/" element={  <LandingPage isMediumSize={isMediumSize} /> } />
                 <Route exact path="/login" element={  <Login /> } />
-                <Route exact path="/viewAllTeachers" element={  < TeachersPage /> } />
+                <Route exact path="/getAllWithPagination/1/10/:school" element={  < TeachersPage /> } />
                 <Route exact path="/home" element={<RequiredAuth><Home/></RequiredAuth>}/>
                 <Route exact path="/schools" element={<Body />}/>
+              {/* <Route exact path="/schools/:schoolName" element={<Teacher />}/> */}
                 <Route path="/studentdashboard" element={<RequiredAuth><StudentDashboard/></RequiredAuth>}/>
                 <Route path="/teacherdashboard" element={<RequiredAuth><TeacherDashboard/></RequiredAuth>}/>
              
