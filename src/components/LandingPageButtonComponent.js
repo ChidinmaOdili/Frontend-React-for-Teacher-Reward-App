@@ -1,9 +1,13 @@
 import React from 'react';
 import Button from "@mui/material/Button";
+import { Link } from 'react-router-dom';
+import '../App.css';
+const LandingPageButtonComponent = ({value , sx , className , to }) => {
 
-const LandingPageButtonComponent = ({value , sx}) => {
     return (
-        <Button variant="contained"  sx={sx} >{value}</Button>
+        <Link to={to} style={{ textDecoration : 'none' }}>
+              <Button variant="contained" color='success' to={to} className={className}  sx={sx} >{value}</Button>
+        </Link>
     );
 };
 

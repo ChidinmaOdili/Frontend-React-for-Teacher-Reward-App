@@ -361,7 +361,7 @@ padding: 8px 16px;
 .new-btn{
 width: 320px;
 height: 48px;
-background: #55A630;
+background: #55A630 !important;
 padding: 8px 16px;
 
 border: none;

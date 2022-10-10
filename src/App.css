@@ -1,6 +1,14 @@
-/* .App {
- 
-} */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
 
 .App-logo {
   height: 40vmin;
@@ -67,3 +75,10 @@
   flex: 1;
   padding: 6px 16px;
 }
+
+
+.landingPageButton{
+  margin-left: 450px !important;
+  text-decoration: none !important;
+}
+

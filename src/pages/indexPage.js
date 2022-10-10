@@ -27,15 +27,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { step, teacherRoles } from "../Utility/landingPageUtils";
 import AppBarComponent from "../components/AppBarComponent";
 
-import Modal from "../components/Modal/Modal";
-import "../components/Modal/Modal.css";
-import "../components/Modal/SuccessModal.css";
-import avataruser from "../assets/image/avataruser.svg";
-import PaymentModal from "../components/Modal/PaymentModal";
-import "../components/Modal/PaymentModal.css";
-import paystack from "../assets/image/paystack.svg";
-import SuccessModal from "../components/Modal/SuccessModal";
-import suceesful from "../assets/image/suceesful.png";
+
 
 const LandingPage = ({ isMediumSize }) => {
   const [steps, setSteps] = useState(step);
@@ -307,87 +299,8 @@ const LandingPage = ({ isMediumSize }) => {
           </Grid>
         </Container>
       </Paper>
-      {/* {
-      ShowModal && (
-        <Modal title="Profile details" closeModal={toggleModal}>
-          <div className="contentContainer">
-            <div className="userInfo">
-              <img src={avataruser} alt="img" className="avatar"></img>
-              <div className="userInfo-add">
-                <h2 className="userrname-avatar">Chioma Awoniyi</h2>
-                <p className="school-info"> Iyana Ipaja Grammar School</p>
-                <p className="title-info">Head Teacher</p>
-              </div>
-            </div>
-            <h1 className="Editbutton">Edit</h1>
-          </div>
-          <div className="AboutModal">
-            <h1 className="about-text">About</h1>
-            <p className="description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Consectetur feugiat aenean morbi non pretium. Tortor lectus quam
-              dictumst nunc, faucibus cursus. Mi sit in bibendum faucibus sed ac
-              id. Tortor lectus quam dictumst nunc, faucibus cursus. Mi sit in
-              bibendum faucibus sed ac id.
-            </p>
-          </div>
-          <div className="info-section">
-            <h1 className="info-header"> Other info</h1>
-            <h1 className="email-style">choimaawoniyi@gmail.com</h1>
-            <h1 className="phone-number">08098556634</h1>
-          </div>
-          <div className="button-section">
-            <button className="first-btn" onClick={toggleinsideModal}>
-              Send Reward
-            </button>
-            <button className="second-btn">Send message</button>
-          </div>
-        </Modal>
-      )
-      } */}
-
-      {/* {
-      insideModal && (
-        <PaymentModal
-          icon={paystack}
-          title="Pay with Wallet Balance"
-          closeModal={toggleinsideModal}
-        >
-         
-
-          <div className="form-wrapper">
-            <div className="form-style">
-                <p className="p-tag">Amount</p>
-              <input type="number" placeholder="Enter amount here..." className="input-size" />
-            </div>
-          </div>
-          <div className="btn-new-div">
-            <button className="new-btn">Pay NGR 20,000</button>
-          </div>
-          
-        </PaymentModal>
-      )
-      } */}
-
-      {ShowModal && (
-        <SuccessModal closeModal={toggleModal}>
-          <div className="image-div">
-            <img src={suceesful} alt="img" className="image-radius" />
-          </div>
-          <div className="header-div">
-            <h1 className="header-class">Reward Sent Successfully</h1>
-          </div>
-          <div className="amount-class">
-            <h1 className="amount-style">
-              You just sent <span className="amout-coded">N15,000</span> to{" "}
-              <span className="name-style">Chioma Awoniyi</span>
-            </h1>
-          </div>
-          <div className="btn">
-            <button className="btn-style">Done</button>
-          </div>
-        </SuccessModal>
-      )}
+      
+   
     </>
   );
 };

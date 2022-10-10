@@ -3,32 +3,34 @@ import {
     AppBar,
     IconButton,
     Tab,
+
+    Drawer,
+    Avatar,
+    Stack,
     Tabs,
     Toolbar,
     Typography,
 } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
-import MobileDrawerComponent from "./MobileDrawerComponent";
-import LandingPageButtonComponent from "./LandingPageButtonComponent";
-import { Link, useNavigate } from 'react-router-dom';
-const AppBarComponent = ({ isMediumSize }) => {
-    const navigate = useNavigate();
+import DashboardSideNav from "./DashboardSideNav";
+import MobileDrawerComponent from "../MobileDrawerComponent"
+import LandingPageButtonComponent from "../LandingPageButtonComponent";
+import { studentDashBoard , teacherDashBoard } from '../../Utility/DashboardUtilities';
+
+const DashboardAppBar = ({ isMediumSize }) => {
     const[menuItems, setMenuItems] = useState(["Home" , "About", "Reward Your Teacher" , "Contact" ]);
     const[value, setValue] = useState();
-
+    const[navlist , setNavList] = useState(teacherDashBoard);
     const[drawerControl, setDrawerControl] = useState(false);
    // const classes = useStyle();
     const closeDrawer = () => {
       setDrawerControl(false)
     }
-
-    const route =( )=>{
-        console.log("route")
-        navigate('/login')
-    }
     return (
-        <AppBar  position="sticky" elevation={6} sx={{background: '#FFFFFF', color: '#55a630',   paddingX : isMediumSize ? 1 : 10}}>
+       
+        <>
+         <AppBar  position="fixed" elevation={6} sx={{background: '#FFFFFF', color: '#55a630',   paddingX : isMediumSize ? 1 : 10}}>
             <Toolbar>
                 {
                     isMediumSize ? (
@@ -51,19 +53,16 @@ const AppBarComponent = ({ isMediumSize }) => {
                             <Typography
                                 variant='h6'
                                 color="inherit"
+                                href="/"
                             >
-                                RYTPE
+                                Reward Your Teacher
                             </Typography>
-                            <Tabs textColor="inherit" sx={{ml: 4}} value={value} onChange={(e , value) => setValue(value) } indicatorColor="primary">
-                                {
-                                    menuItems.map((item , index) => (
-                                        <Tab key={index} label={item} />
-                                    ))
-                                }
-                            </Tabs>
-                          
-                             <LandingPageButtonComponent sx={{mr:2, marginLeft :"auto"}} className="landingPageButton" to="/login" value="Login" />
-                          
+                           
+                           <Stack alignItems="center" sx={{mr:2, marginLeft :"auto"}} direction="row" spacing={2}>
+                            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                            <Typography sx={{ fontSize : '12px' }} variant="h6">Remy </Typography>
+                           </Stack>
+                            {/* <LandingPageButtonComponent  value="Login" /> */}
                             {/*<LandingPageButtonComponent value="Login" />*/}
                         </>
                     )
@@ -71,7 +70,9 @@ const AppBarComponent = ({ isMediumSize }) => {
 
             </Toolbar>
         </AppBar>
+        {/* <DashboardSideNav  navlink={navlist} /> */}
+        </>
     );
 };
 
-export default AppBarComponent;
+export default DashboardAppBar;
