@@ -5,14 +5,14 @@ import SmsIcon from '@mui/icons-material/Sms';
 import LocationCityIcon from '@mui/icons-material/LocationCity';
 
 export const studentDashBoard = [
-    { name : "Overview", icon : WidgetsIcon, link : "/overview" },
-    { name : "Notification", icon : NotificationsIcon, link : "/Notification" },
-    { name : "Message", icon : SmsIcon, link : "/message" },
-    { name : "School", icon : LocationCityIcon, link : "/schools" },
+    { name : "Overview", icon : "fa fa-school", link : "/student-dashboard" },
+    { name : "Notification", icon : "fa fa-bell", link : "/student-dashboard/notification" },
+    { name : "Message", icon : "fa fa-comment-dots", link : "/message" },
+    { name : "School", icon : "fa fa-school", link : "/student-dashboard/schools" },
 ]
 
 export const teacherDashBoard = [
-    { name : "Overview", icon : WidgetsIcon, link : "/overview" },
-    { name : "Notification", icon : NotificationsIcon, link : "/Notification" },
-    { name : "Message", icon : SmsIcon, link : "/message" },
+    { name : "Overview", icon : "fa fa-school", link : "/teacher-dashboard" },
+    { name : "Notification", icon : "fa fa-bell", link : "/teacher-dashboard/notification" },
+    { name : "Message", icon : "fa fa-comment-dots", link : "/teacher-dashboard/message" },
 ]
