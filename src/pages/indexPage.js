@@ -73,6 +73,7 @@ const LandingPage = ({ isMediumSize }) => {
                 <LandingPageButtonComponent
                   sx={{ background: "#55a630", mt: 2, mr: 10 }}
                   value="Get Started"
+                  to="/signup"
                 />
               </Box>
             </Grid>
@@ -178,6 +179,7 @@ const LandingPage = ({ isMediumSize }) => {
                     color: "#55a630",
                   }}
                   value="Get Started"
+                  to="/signup"
                 />
               </Box>
             </Grid>

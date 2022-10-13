@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
-import DashboardAppBar from "../components/dashbord_components/DashboardAppBar";
+
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -10,7 +10,6 @@ import { DataGrid } from "@mui/x-data-grid";
 import TuneIcon from "@mui/icons-material/Tune";
 import axios from "../api/axios";
 import { SchoolSharp } from "@mui/icons-material";
-import DashboardSideNav from "../components/dashbord_components/DashboardSideNav";
 import { studentDashBoard } from "../Utility/DashboardUtilities";
 import LoadingButton from '@mui/lab/LoadingButton';
 import Modal from "../components/Modal/Modal";
@@ -24,6 +23,7 @@ import SuccessModal from "../components/Modal/SuccessModal";
 import suceesful from "../assets/image/suceesful.png";
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
+import StudentDashboard2 from "./studentDashboard/StudentDashboard copy";
 function TeachersPage() {
   const [teachers, setTeachers] = useState([]);
   const [searchTeachers, setSearchTeachers] = useState("");
@@ -60,7 +60,7 @@ function TeachersPage() {
 
   const retrieveRecord = (id) => {
     axios.get("/api/view/" + id).then((response) => {
-      // console.log(response.data.data);
+       console.log(response.data.data);
       setTeacherRecord(response.data.data);
       toggleModal();
     });
@@ -112,25 +112,22 @@ function TeachersPage() {
 
   return (
     <>
-      <DashboardAppBar />
-      <Snackbar open={snackbarHandler} anchorOrigin={{ vertical : 'top' , horizontal : 'right' }} autoHideDuration={6000} onClose={handleClose}>
-        <MuiAlert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
-          {message}
-        </MuiAlert>
-      </Snackbar>
-      <Grid container>
-        <Grid item md={3} lg={3} xs={4} sm={4}>
-          <DashboardSideNav navlink={studentDashBoard} />
-        </Grid>
+      <StudentDashboard2 navItems={ studentDashBoard }>
+        <Snackbar open={snackbarHandler} anchorOrigin={{ vertical : 'top' , horizontal : 'right' }} autoHideDuration={6000} onClose={handleClose}>
+          <MuiAlert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
+            {message}
+          </MuiAlert>
+        </Snackbar>
+        <Grid container>
         <Grid
           style={{ height: 450, width: "100%" }}
           item
-          md={8}
-          lg={8}
+          md={12}
+          lg={12}
           xs={4}
           sm={4}
         >
-          <Typography sx={{ mt: 15, color: "#55a630", mb: 3 }}>
+          <Typography sx={{ mt: 5, color: "#55a630", mb: 3 }}>
             All Teachers
           </Typography>
           <Grid container>
@@ -170,8 +167,8 @@ function TeachersPage() {
           />
         </Grid>
         <Grid item md={1} lg={1} xs={1} sm={1}></Grid>
-      </Grid>
-      {ShowModal && (
+        </Grid>
+        {ShowModal && (
         <Modal title="Profile details" closeModal={toggleModal}>
           <div className="contentContainer">
             <div className="userInfo">
@@ -264,6 +261,10 @@ function TeachersPage() {
 
         </PaymentModal>
       )}
+      </StudentDashboard2>
+      
+     
+     
     </>
   );
 }
