@@ -16,7 +16,7 @@ import TeachersPage from './pages/TeachersPage';
 import TeacherSignUp from './pages/userRegistration/TeacherSignUp';
 import StudentSignUp from './pages/userRegistration/StudentSignUp';
 import RedirectUser from './pages/userRedirectPage/RedirectUser';
-// import BaseRoute from './routes/BaseRoute';
+import Notifications from './pages/notifications/Notification';
 
 
 
@@ -41,6 +41,7 @@ function App() {
                 <Route exact path="/teachersignup" element={<TeacherSignUp/>}/>
                 <Route exact path= "/studentsignup" element={<StudentSignUp/>}/>
                 <Route exact path= "/signup" element = {<RedirectUser/>}/>
+                <Route exact path= "/notification" element = {<Notifications/>}/>
               {/* <Route exact path="/schools/:schoolName" element={<Teacher />}/> */}
 
              

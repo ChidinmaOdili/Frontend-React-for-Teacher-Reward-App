@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import line from "../../assets/loginAssets/line.svg";
 import Google from "../../assets/loginAssets/Google.svg";
 import rewardlogo from "../../assets/loginAssets/rewardlogo.svg";
-import axios from "../../api/axios";
+import axios from "axios";
 import { LoginContainer } from "./Login.style";
 
 const Login = () => {
@@ -11,6 +11,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const baseUrl = process.env.REACT_APP_API_URL;
 
   const handleEmail = (e) => {
     e.preventDefault();
@@ -33,9 +34,9 @@ const Login = () => {
         email,
         password,
       };
-      // localStorage.clear();
+      localStorage.clear();
 
-      const response = await axios.post("/api/auth/login/", data);
+      const response = await axios.post(`${baseUrl}/api/auth/login/`, data);
       console.log(response);
       localStorage.setItem("userId", response.data.data.id);
       localStorage.setItem("email", response.data.data.email);
