@@ -128,6 +128,7 @@ const Body = () => {
                 </tbody>
 
                 <div className="pagination">
+                {/* <a onClick={() => setPageNumber(nextPage)}>prev</a> */}
                   <a onClick={previousPage}>{/* &laquo; */}</a>
                   {pages}
                   <a>...</a>

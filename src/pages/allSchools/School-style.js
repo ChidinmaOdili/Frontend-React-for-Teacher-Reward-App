@@ -136,6 +136,7 @@ input[type="search"] {
     left: 50%;
     margin-top: -30px !important;
     transform: translate(-50%, -50%);
+    margin-bottom: -150px;
 }
 .pagination a {
     color: black;
