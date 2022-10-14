@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import StudentDashboard2 from "../studentDashboard/StudentDashboard copy";
-import { studentDashBoard } from "../../Utility/DashboardUtilities";
+import { teacherDashBoard } from "../../Utility/DashboardUtilities";
 import { DashboardContainer, DashboardMainBody } from "./Notification.style";
 
 import axios from "../../api/axios";
 
-const Notifications = () => {
+const TeacherNotifications = () => {
   const [notification, setNotification] = useState([]);
   React.useEffect(() => {
     const getNotification = async () => {
@@ -23,7 +23,7 @@ const Notifications = () => {
   
   return (
     <>
-      <StudentDashboard2 navItems={studentDashBoard}>
+      <StudentDashboard2 navItems={teacherDashBoard}>
         <DashboardContainer>
           <DashboardMainBody>
             <div className="notificationList">
@@ -47,4 +47,4 @@ const Notifications = () => {
     </>
   );
 };
-export default Notifications;
+export default TeacherNotifications;
