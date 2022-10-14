@@ -5,7 +5,7 @@ export const BodyStyle = styled.div `
     /* display: flex;
     flex-direction: column;
     padding: 10px 0 0 60px; */
-    margin-top: 100px !important;
+   
 }
 
 .title h2 {

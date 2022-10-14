@@ -7,14 +7,14 @@ import Login from './pages/login/Login';
 import Home from './pages/dashBoard/Home';
 import RequiredAuth from "./pages/login/RequiredAuth";
 import Body from './pages/allSchools/School';
-import AppBarComponent from "./components/AppBarComponent";
-import DashboardAppBar from './components/dashbord_components/DashboardAppBar';
 import StudentDashboard from './pages/studentDashboard/StudentDashboard';
 import FundWallet from './pages/studentDashboard/FundWallet';
 import TeacherDashboard from './pages/teacherDashboard copy/TeacherDashboard';
 import TeachersPage from './pages/TeachersPage';
-// import BaseRoute from './routes/BaseRoute';
-
+import TeacherSignUp from './pages/userRegistration/TeacherSignUp';
+import StudentSignUp from './pages/userRegistration/StudentSignUp';
+import RedirectUser from './pages/userRedirectPage/RedirectUser';
+import StudentDashboard2 from './pages/studentDashboard/StudentDashboard copy';
 
 
 function App() {
@@ -32,14 +32,14 @@ function App() {
                 <Route exact path="/login" element={  <Login /> } />
                 <Route exact path="/getAllWithPagination/1/10/:school" element={  < TeachersPage /> } />
                 <Route exact path="/home" element={<RequiredAuth><Home/></RequiredAuth>}/>
-                <Route exact path="/schools" element={<Body />}/>
-              {/* <Route exact path="/schools/:schoolName" element={<Teacher />}/> */}
-                <Route path="/studentdashboard" element={<RequiredAuth><StudentDashboard/></RequiredAuth>}/>
-                <Route path="/teacherdashboard" element={<RequiredAuth><TeacherDashboard/></RequiredAuth>}/>
-             
-                {/*<Route exact path="/c" element={  <AppBarComponent isMediumSize={isMediumSize} /> } />*/}
-
-                <Route exact path="/c" element={  <DashboardAppBar /> } />
+                <Route exact path="/student-dashboard/schools" element={<Body />}/>
+                <Route exact path="/student-dashboard" element={<RequiredAuth><StudentDashboard/></RequiredAuth>}/>
+                <Route exact path="/teacher-dashboard" element={<RequiredAuth><TeacherDashboard/></RequiredAuth>}/>
+                <Route exact path="/teachersignup" element={<TeacherSignUp/>}/>
+                <Route exact path= "/studentsignup" element={<StudentSignUp/>}/>
+                <Route exact path= "/signup" element = {<RedirectUser/>}/>
+                <Route exact path="/peter" element={<StudentDashboard2/>}/>
+            
 
             </Routes>
   

@@ -133,6 +133,7 @@ export const SideBarLink = styled(Link)`
     background-color: #55a630;
   }
 `;
+
 export const DashboardMainBody = styled.div`
   display: grid;
   gap: 2rem;
@@ -271,8 +272,8 @@ export const FormStyle = styled.div`
 
   .payment-data-form input {
     width: 100%;
-    padding-top :20px;
-    padding-bottom :20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;

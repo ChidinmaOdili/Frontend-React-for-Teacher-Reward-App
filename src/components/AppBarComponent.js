@@ -18,7 +18,7 @@ const AppBarComponent = ({ isMediumSize }) => {
     const[value, setValue] = useState();
 
     const[drawerControl, setDrawerControl] = useState(false);
-   // const classes = useStyle();
+  
     const closeDrawer = () => {
       setDrawerControl(false)
     }
