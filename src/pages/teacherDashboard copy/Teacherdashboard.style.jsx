@@ -271,8 +271,70 @@ export const TransactionDetails = styled.div`
         justify-content: center;
 
     }
-
+    
 
 `;
+export const TeacherWalletStyle = styled.div`
+    
+   
+    width: 90%;
+    /* height: 360px; */
+    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.04);
+    padding: 3% 6% 3% 3%;
+    .MostRecent{
+        font-weight: 600;
+        font-size: 1.5 rem;
+        color: #03435F;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        display: flex;
+        justify-content: space-between;
+        .new{
+            color: #FFFFFF;
+            background-color: #55a630;
+            width: 55px;
+            height: 39px;
+            border-radius: 40%;
+            font-size: 1rem;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2%;
+        }
+    }
+    .transactionList{
+        padding-top: 1.5%;
+        padding-bottom: 1.5%;
+        /* border: 2px solid red; */
+        display: flex;
+        font-size: 14px;
+        color:#03435F;
+        justify-content: space-between;
+        width: 100%;
 
+        .Trans{
+          width: 70% ;
+            p{
+                margin: 0;
+                font-size: 14px;
+            }
+            #date{
+                color:  #C4C4C4;
+            }
+        }
+        #viewStudent{
+            font-weight: 400;
+            font-size: 14px;
+            width: 15%;
+            color: #55A630;
+            background: rgba(128, 185, 24, 0.1);
+            border-radius: 30%;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            padding: 5px 5px;
+            gap: 10%;
+        }
+    }
+`;
 
