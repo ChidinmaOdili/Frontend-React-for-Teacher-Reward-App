@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 import DashboardAppBar from "../components/dashbord_components/DashboardAppBar";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
@@ -12,7 +12,7 @@ import axios from "../api/axios";
 import { SchoolSharp } from "@mui/icons-material";
 import DashboardSideNav from "../components/dashbord_components/DashboardSideNav";
 import { studentDashBoard } from "../Utility/DashboardUtilities";
-import LoadingButton from '@mui/lab/LoadingButton';
+import LoadingButton from "@mui/lab/LoadingButton";
 import Modal from "../components/Modal/Modal";
 import "../components/Modal/Modal.css";
 import "../components/Modal/SuccessModal.css";
@@ -22,8 +22,8 @@ import "../components/Modal/PaymentModal.css";
 import paystack from "../assets/image/paystack.svg";
 import SuccessModal from "../components/Modal/SuccessModal";
 import suceesful from "../assets/image/suceesful.png";
-import Snackbar from '@mui/material/Snackbar';
-import MuiAlert from '@mui/material/Alert';
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
 function TeachersPage() {
   const [teachers, setTeachers] = useState([]);
   const [searchTeachers, setSearchTeachers] = useState("");
@@ -34,19 +34,25 @@ function TeachersPage() {
   const [ShowModal, setShowModal] = useState(false);
   const [insideModal, setInsideModal] = useState(false);
   const [amountToSend, setAmountToSend] = useState(0);
-  const [amountEntered, setAmountEnter] = useState(false)
-  const [successModal, setSuccessModal] = useState(false)
-  const [loading , setLoading] = useState(false)
-  const[message , setMessage] = useState("");
-  const[snackbarHandler , setSnackbarHandler] = useState(false)
-
+  const [amountEntered, setAmountEnter] = useState(false);
+  const [successModal, setSuccessModal] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+  const [snackbarHandler, setSnackbarHandler] = useState(false);
 
   const toggleModal = () => {
     setShowModal(!ShowModal);
   };
   const toggleinsideModal = () => {
+    setShowModal(false);
     setInsideModal(!insideModal);
   };
+
+  const collapseModal = () => {
+    setSuccessModal(false);
+    setShowModal(false);
+    setInsideModal(false);
+  }
   const payload = {
     amount: parseInt(amountToSend),
   };
@@ -67,25 +73,24 @@ function TeachersPage() {
   };
 
   const sendReward = (id) => {
-    setLoading(true)
+    setLoading(true);
     axios.post("/api/rewardTeacher/" + id, payload).then((response) => {
-      if (response.data.message === "success"){
-        setSuccessModal(true)
-        setLoading(false)
-      }else{
-        setMessage(response.data.message)
-        setSnackbarHandler(true)
-        setLoading(false)
+      if (response.data.message === "success") {
+        setLoading(false);
+        setSuccessModal(!successModal);
+      } else {
+        setMessage(response.data.message);
+        setSnackbarHandler(true);
+        setLoading(false);
       }
-    
-      toggleModal();
+
+      // toggleModal();
     });
   };
 
-  const handleClose =()=>{
-    setSnackbarHandler(false)
-  }
- 
+  const handleClose = () => {
+    setSnackbarHandler(false);
+  };
 
   const search = (word) => {
     teachers.filter((item) => {
@@ -109,12 +114,16 @@ function TeachersPage() {
       });
   }, []);
 
-
   return (
     <>
       <DashboardAppBar />
-      <Snackbar open={snackbarHandler} anchorOrigin={{ vertical : 'top' , horizontal : 'right' }} autoHideDuration={6000} onClose={handleClose}>
-        <MuiAlert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
+      <Snackbar
+        open={snackbarHandler}
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        autoHideDuration={6000}
+        onClose={handleClose}
+      >
+        <MuiAlert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
           {message}
         </MuiAlert>
       </Snackbar>
@@ -144,9 +153,7 @@ function TeachersPage() {
                 onChange={(e) => {
                   setSearchTeachers(e.target.value);
                 }}
-                onKeyDown={
-                  () => search(searchTeachers)
-                }
+                onKeyDown={() => search(searchTeachers)}
                 sx={{ mb: 5 }}
               />
             </Grid>
@@ -223,7 +230,7 @@ function TeachersPage() {
                 value={amountToSend}
                 onChange={(e) => {
                   setAmountToSend(e.target.value);
-                  setAmountEnter(true);
+                  setAmountEnter(true); 
                 }}
               />
             </div>
@@ -233,35 +240,39 @@ function TeachersPage() {
               loading={loading}
               className="new-btn"
               onClick={() => sendReward(teacherRecord.id)}
-            >{amountEntered ? `Send ${amountToSend}` : "Enter Amount"}
+            >
+              {amountEntered ? `Send ${amountToSend}` : "Enter Amount"}
             </LoadingButton>
           </div>
 
-           {successModal && (
-        <SuccessModal closeModal={toggleModal}>
-          <div className="image-div">
-            <img src={suceesful} alt="img" className="image-radius" />
-          </div>
-          <div className="header-div">
-            <h1 className="header-class">Reward Sent Successfully</h1>
-          </div>
-          <div className="amount-class">
-            <h1 className="amount-style">
-              You just sent <span className="amout-coded">{amountToSend}</span> to{" "}
-              <span className="name-style">{teacherRecord.name}</span>
-            </h1>
-          </div>
-          <div className="btn">
-            <Button className="btn-style"  onClick={()=> {
-              setSuccessModal(false);
-              setShowModal(false)
-              setInsideModal(false)
-              setAmountToSend(0)
-              }}>Done</Button>
-          </div>
-        </SuccessModal>
-      )} 
-
+          {successModal && (
+            <SuccessModal>
+              <div className="image-div">
+                <img src={suceesful} alt="img" className="image-radius" />
+              </div>
+              <div className="header-div">
+                <h1 className="header-class">Reward Sent Successfully</h1>
+              </div>
+              <div className="amount-class">
+                <h1 className="amount-style">
+                  You just sent{" "}
+                  <span className="amout-coded">{amountToSend}</span> to{" "}
+                  <span className="name-style">{teacherRecord.name}</span>
+                </h1>
+              </div>
+              <div className="btn">
+                <Button
+                  className="btn-style"
+                  onClick={() => {
+                    collapseModal();
+                    setAmountToSend(0);
+                  }}
+                >
+                  Done
+                </Button>
+              </div>
+            </SuccessModal>
+          )}
         </PaymentModal>
       )}
     </>
