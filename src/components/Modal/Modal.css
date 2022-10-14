@@ -10,7 +10,6 @@
   right: 57px;
   border: 0;
   background: transparent;
-  /* font-weight: bold; */
   font-size: 30px;
   cursor: pointer;
 }
@@ -26,8 +25,9 @@
   font-family: "Inter";
   font-style: normal;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 7px;
   line-height: 17px;
+  font-size: 16px;
 }
 
 .Modal-Area {
@@ -81,9 +81,12 @@
   font-family: "Inter";
   font-style: normal;
   font-weight: 600;
-  font-size: 14px;
-  line-height: 17px;
+  font-size: 18px !important;
+  line-height: 20px !important;
   color: #03435f;
+}
+.userrname-avatar h2 {
+  font-size: 16px !important;
 }
 
 .school-info {

@@ -11,3 +11,13 @@ export const getTeacherWalletBalance = async () => {
     console.log(error);
     };  
 };
+
+export const getTeacherMostRecentTransaction = async () => {
+    try {
+    const response = await axios.get("/api/most-recent-notification")
+    console.log(response.data);
+    return response.data;
+    } catch (error) {
+    console.log(error);
+    };  
+};

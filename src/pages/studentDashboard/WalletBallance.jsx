@@ -11,3 +11,12 @@ export const getWalletBalance = async () => {
     console.log(error);
     };  
 };
+export const getTotalMoneySent = async () => {
+    try {
+        const response = await axios.get("api/total-amount")
+        console.log(response.data);
+        return response.data;
+        } catch (error) {
+        console.log(error);
+        }; 
+}
