@@ -46,6 +46,7 @@ const Login = () => {
       };
       localStorage.clear();
 
+
       const response = await axios.post(`${baseURL}/api/auth/login/`, data);
       console.log(response);
       localStorage.setItem("userId", response.data.data.id);

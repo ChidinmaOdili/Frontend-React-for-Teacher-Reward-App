@@ -14,7 +14,10 @@ import TeachersPage from './pages/TeachersPage';
 import TeacherSignUp from './pages/userRegistration/TeacherSignUp';
 import StudentSignUp from './pages/userRegistration/StudentSignUp';
 import RedirectUser from './pages/userRedirectPage/RedirectUser';
+import Notifications from './pages/notifications/Notification';
 import StudentDashboard2 from './pages/studentDashboard/StudentDashboard copy';
+import TeacherNotifications from './pages/notifications/TeacherNotification';
+
 
 
 function App() {
@@ -38,8 +41,11 @@ function App() {
                 <Route exact path="/teachersignup" element={<TeacherSignUp/>}/>
                 <Route exact path= "/studentsignup" element={<StudentSignUp/>}/>
                 <Route exact path= "/signup" element = {<RedirectUser/>}/>
+                <Route exact path= "/student-dashboard/notification" element = {<RequiredAuth><Notifications/></RequiredAuth>}/>
+                <Route exact path= "/teacher-dashboard/notification" element = {<RequiredAuth><TeacherNotifications/></RequiredAuth>}/>
                 <Route exact path="/peter" element={<StudentDashboard2/>}/>
             
+
 
             </Routes>
   
