@@ -8,6 +8,7 @@ import {
   Tabs,
   Typography,
 } from "@mui/material";
+
 import rytpe1 from "../assets/image/rytpe-1.png";
 import rytpe2 from "../assets/image/rytpe-2.png";
 import rytpe3 from "../assets/image/rytpe-3.png";
@@ -43,7 +44,7 @@ const LandingPage = ({ isMediumSize }) => {
   return (
     <>
       <AppBarComponent isMediumSize={isMediumSize} />
-      <Paper sx={{ mt: 2 }}>
+      <Paper >
         <Container maxWidth="md" sx={{ height: "100%" }}>
           <Grid container alignItems="center" justifyContent="space-between">
             <Grid item xs={12} sm={12} md={6} lg={6} sx={{ height: "100%" }}>

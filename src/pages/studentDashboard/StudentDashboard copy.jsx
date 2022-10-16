@@ -11,7 +11,7 @@ import {
   DashboardMainBody,
   SideBarLink,
 } from "./Studentdashboard.style";
-
+import axios from '../../api/axios'
 import { getWalletBalance } from "./WalletBallance";
 import Logout from "../Modal/logout/Logout";
 
@@ -39,6 +39,8 @@ const StudentDashboard2 = ({ children, navItems }) => {
     } else if (localStorage.getItem("role") === "TEACHER") {
       setRole(false);
     }
+    
+    
   }, [balance]);
   const handlePaymentData = () => {
     setShowForm(!showForm);
@@ -68,7 +70,7 @@ const StudentDashboard2 = ({ children, navItems }) => {
               alt=""
             />
           </ImageWrapper>
-          <h3>Henry</h3>
+          <h3>{ localStorage.getItem('name') }</h3>
         </TopbarRighttSide>
       </Topbar>
 
