@@ -1,16 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import line from "../../assets/loginAssets/line.svg";
 import Google from "../../assets/loginAssets/Google.svg";
 import rewardlogo from "../../assets/loginAssets/rewardlogo.svg";
 import axios from "axios";
-
+import { LoginContainer } from "./Login.style";
 import LoadingButton from "@mui/lab/LoadingButton";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
+import { gapi } from "gapi-script";
+import GoogleLogin from "react-google-login";
 
-
-const Login = () => {
+const Login2 = () => {
+  const [name, setName] = useState("");
+  const [success, setSuccess] = useState(false);
+  const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -54,8 +58,6 @@ const Login = () => {
       localStorage.setItem("email", response.data.data.email);
       localStorage.setItem("token", response.data.data.token);
       localStorage.setItem("role", response.data.data.role);
-      localStorage.setItem("name", response.data.data.name);
-
       const role = response.data.data.role;
       const message = response.data.message;
 
@@ -77,6 +79,68 @@ const Login = () => {
       setError(error.response.data.message);
     }
   };
+
+  // google login 
+
+  useEffect(() => {
+    const initClient = () => {
+      gapi.client.init({
+        clientId: clientId,
+        scope: "",
+      });
+    };
+    gapi.load("client:auth2", initClient);
+  },[]);
+
+
+  const socialLogin = async () => {
+    const data = {
+      email,
+      name,
+    };
+    try {
+      const response = await axios.post(`${baseURL}/api/auth/social-login`, data);
+      console.log(response);
+      console.log(response);
+      localStorage.setItem("userId", response.data.data.id);
+      localStorage.setItem("email", response.data.data.email);
+      localStorage.setItem("token", response.data.data.token);
+      localStorage.setItem("role", response.data.data.role);
+      const role = response.data.data.role;
+      const message = response.data.message;
+      setSuccess(false);
+
+      if (message === "success") {
+        setMessage(message);
+        setSnackbarHandler(true);
+        if (role === "STUDENT") {
+          navigate("/student-dashboard");
+          window.location.reload();
+        } else if (role === "TEACHER") {
+          navigate("/teacher-dashboard");
+          window.location.reload();
+        }
+      }
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const onSuccess = async (res) => {
+    // console.log(res)
+    setEmail(res.profileObj.email);
+    setName(`${res.profileObj.familyName} ${res.profileObj.givenName}`);
+    setSuccess(true);
+    if (success) {
+      setSuccess(false);
+      socialLogin();
+    }
+    // socialLogin();
+  };
+
+
+
 
   return (
     <LoginContainer>
@@ -147,32 +211,30 @@ const Login = () => {
               <img src={line} alt="" />
             </div>
           </form>
-          <div>
-            <button className="google_signin_button">
-              <img src={Google} alt="google logo" />
-              Sign Up with Google
-            </button>
+        
 
-          </div>
+            <GoogleLogin
+              className="google_signin_button"
+              clientId={clientId}
+              buttonText="Sign up with Google"
+              onSuccess={onSuccess}
+              // onFailure={onFailure}
+              cookiePolicy={"single_host_origin"}
+              isSignedIn={true}
+            />
 
-
-
-
-
-
-
-          <div></div>{" "}
-          <p className="dont_have_account">
-            {" "}
-            Don't have an account?{" "}
-            <b>
-              <Link to="/signup">Create Account</Link>
-            </b>
-          </p>
-        </div>
+        <div></div>{" "}
+        <p className="dont_have_account">
+          {" "}
+          Don't have an account?{" "}
+          <b>
+            <Link to="/signup">Create Account</Link>
+          </b>
+        </p>
       </div>
-    </LoginContainer>
+    </div>
+    </LoginContainer >
   );
 };
 
-export default Login;
+export default Login2;
