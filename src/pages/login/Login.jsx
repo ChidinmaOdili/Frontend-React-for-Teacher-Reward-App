@@ -54,6 +54,7 @@ const Login = () => {
       localStorage.setItem("email", response.data.data.email);
       localStorage.setItem("token", response.data.data.token);
       localStorage.setItem("role", response.data.data.role);
+      console.log(response.data.data.name)
       localStorage.setItem("name", response.data.data.name);
 
       const role = response.data.data.role;
