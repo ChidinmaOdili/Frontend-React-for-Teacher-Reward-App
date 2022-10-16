@@ -203,8 +203,6 @@ body {
     display: none;
   }
 }
+`
 
-
-
-
-`;
+  ;
