@@ -7,6 +7,9 @@ import {
     Toolbar,
     Typography,
 } from "@mui/material";
+import {
+    ImageWrapper,
+  } from "../pages/studentDashboard/Studentdashboard.style"
 import MenuIcon from '@mui/icons-material/Menu';
 import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
 import MobileDrawerComponent from "./MobileDrawerComponent";
@@ -28,7 +31,7 @@ const AppBarComponent = ({ isMediumSize }) => {
         navigate('/login')
     }
     return (
-        <AppBar  position="sticky" elevation={6} sx={{background: '#FFFFFF', color: '#55a630',   paddingX : isMediumSize ? 1 : 10}}>
+        <AppBar  position="sticky" elevation={2} sx={{background: '#FFFFFF', color: '#55a630', paddingY : 1,   paddingX : isMediumSize ? 1 : 10 , paddingRight : isMediumSize ? 1 : 20}}>
             <Toolbar>
                 {
                     isMediumSize ? (
@@ -42,19 +45,17 @@ const AppBarComponent = ({ isMediumSize }) => {
                             </IconButton></>
                     ) : (
                         <>
-                            <CurrencyExchangeIcon
-                                sx={{
-                                    mr : 3,
-                                }}
-                                color="inherit"
-                            />
+                                <ImageWrapper>
+                                    <img src="/img/Frame 12.png" alt="" />
+                                </ImageWrapper>
                             <Typography
                                 variant='h6'
-                                color="inherit"
+                                    color="inherit"
+                                  sx={{ ml: 1 }}
                             >
-                                RYTPE
+                                Reward Your Teacher
                             </Typography>
-                            <Tabs textColor="inherit" sx={{ml: 4}} value={value} onChange={(e , value) => setValue(value) } indicatorColor="primary">
+                            <Tabs textColor="inherit" sx={{ml: 10 }} value={value} onChange={(e , value) => setValue(value) } indicatorColor="primary">
                                 {
                                     menuItems.map((item , index) => (
                                         <Tab key={index} label={item} />
@@ -62,7 +63,7 @@ const AppBarComponent = ({ isMediumSize }) => {
                                 }
                             </Tabs>
                           
-                             <LandingPageButtonComponent sx={{mr:2, marginLeft :"auto"}} className="landingPageButton" to="/login" value="Login" />
+                             <LandingPageButtonComponent sx={{ ml : 30 }}  className="landingPageButton" to="/login" value="Login" />
                           
                             {/*<LandingPageButtonComponent value="Login" />*/}
                         </>

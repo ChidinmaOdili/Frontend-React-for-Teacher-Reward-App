@@ -63,9 +63,9 @@ function TeachersPage() {
   };
   let { school } = useParams();
   const columns = [
-    { field: "name", headerName: "name", width: 300 },
-    { field: "School", headerName: "school", width: 300 },
-    { field: "role", headerName: "role", width: 150 },
+    { field: "name", headerName: "Name", width: 300 },
+    { field: "School", headerName: "School", width: 300 },
+    { field: "role", headerName: "Role", width: 150 },
     { field: "teachingPeriod", headerName: "Period", width: 150 },
   ];
 
